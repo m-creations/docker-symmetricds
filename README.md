@@ -1,5 +1,7 @@
 wget https://github.com/zettio/weave/releases/download/latest_release/weave
+
 chmod a+x weave
+
 sudo cp weave /usr/local/bin 
 
 weave launch
