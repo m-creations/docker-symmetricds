@@ -21,4 +21,4 @@ RUN opkg update && \
     cp -r symmetric-server-${SYMMETRICDS_VERSION}/* ${SYMMETRICDS_HOME}/ && \
     rm -rf symmetric-server-${SYMMETRICDS_VERSION}*
 
-#CMD ["/start-symmertic-ds"]
+CMD ["/start-symmertic-ds"]
