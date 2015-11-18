@@ -1,14 +1,14 @@
 #!/bin/bash
 if [ "$MASTER_ENGINE_NAME" ]; then
 	echo "find this node as a master node"
-	if [ -f ${SYMMETRICDS_HOME}/tmp/insert.sql ]; then
+	if [ -f ${SYMMETRICDS_HOME}/tmp/init.sql ]; then
         echo "creating sym-tables ..."
 		${SYMMETRICDS_HOME}/bin/symadmin --engine ${MASTER_ENGINE_NAME} create-sym-tables
-        echo "inserting insert.sql ..."
-		${SYMMETRICDS_HOME}/bin/dbimport --engine ${MASTER_ENGINE_NAME} ${SYMMETRICDS_HOME}/tmp/insert.sql
-	    rm ${SYMMETRICDS_HOME}/tmp/insert.sql	
-	    echo "insert.sql is deleted"
+        echo "inserting init.sql ..."
+		${SYMMETRICDS_HOME}/bin/dbimport --engine ${MASTER_ENGINE_NAME} ${SYMMETRICDS_HOME}/tmp/init.sql
+	    rm ${SYMMETRICDS_HOME}/tmp/init.sql
+	    echo "init.sql is deleted"
     fi
 fi
 echo "starting symmetric-ds ..."
-${SYMMETRICDS_HOME}/bin/sym 
+${SYMMETRICDS_HOME}/bin/sym
