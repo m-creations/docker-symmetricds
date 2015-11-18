@@ -2,7 +2,7 @@ wget https://github.com/zettio/weave/releases/download/latest_release/weave
 
 chmod a+x weave
 
-sudo cp weave /usr/local/bin 
+sudo cp weave /usr/local/bin
 
 weave launch
 
@@ -24,7 +24,7 @@ sudo mkdir -p /data/symmetric-ds/slave/logs
 
 sudo cp master-000.properties /data/symmetric-ds/master/engines/master-000.properties
 
-sudo cp insert.sql /data/symmetric-ds/master/tmp/insert.sql
+sudo cp init.sql /data/symmetric-ds/master/tmp/init.sql
 
 sudo cp slave-001.properties /data/symmetric-ds/slave/engines/slave-001.properties
 
@@ -47,4 +47,4 @@ eval $(weave env)
 
 docker run --name master-symmetricds -h master-symmetricds.weave.local  -v /data/symmetric-ds/master/engines:/opt/symmetric-ds/engines  -v /data/symmetric-ds/master/logs:/opt/symmetric-ds/logs -v /data/symmetric-ds/master/tmp:/opt/symmetric-ds/tmp -e MASTER_ENGINE_NAME=master-000 -d   mcreations/docker-openwrt-symmetricds
 
-docker run --name slave-symmetricds -h slave-symmetricds.weave.local  -v /data/symmetric-ds/slave/engines:/opt/symmetric-ds/engines  -v /data/symmetric-ds/slave/logs:/opt/symmetric-ds/logs -d   mcreations/docker-openwrt-symmetricds 
+docker run --name slave-symmetricds -h slave-symmetricds.weave.local  -v /data/symmetric-ds/slave/engines:/opt/symmetric-ds/engines  -v /data/symmetric-ds/slave/logs:/opt/symmetric-ds/logs -d   mcreations/docker-openwrt-symmetricds
