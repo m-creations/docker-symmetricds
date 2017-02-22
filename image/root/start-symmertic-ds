@@ -11,4 +11,7 @@ if [ "$MASTER_ENGINE_NAME" ]; then
     fi
 fi
 echo "starting symmetric-ds ..."
-${SYMMETRICDS_HOME}/bin/sym
+exec ${SYMMETRICDS_HOME}/bin/sym
+sym_pid=$!
+
+wait
